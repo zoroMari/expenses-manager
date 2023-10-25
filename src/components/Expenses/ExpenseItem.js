@@ -4,7 +4,8 @@ import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
 import Card from '../UI/Card';
 
-export default function ExpenseItem({date, title, amount}) {
+export default function ExpenseItem({date, title, amount, onDelete}) {
+
   return (
     <li>
       <Card className="expense-item">
@@ -13,6 +14,7 @@ export default function ExpenseItem({date, title, amount}) {
         <div className="expense-item__description">
           <h2>{title}</h2>
           <div className="expense-item__price">${amount}</div>
+          <button onClick={() => onDelete()} className='deleteExpense'>X</button>
         </div>
       </Card>
     </li>

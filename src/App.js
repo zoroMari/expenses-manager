@@ -14,10 +14,16 @@ function App() {
     localStorage.setItem('myExpenses', JSON.stringify([enteredData, ...expenses]));
   }
 
+  const deleteHandler = (id) => {
+    const newExpenses = expenses.filter((item) => item.id !== id);
+    setExpenses([...newExpenses]);
+    localStorage.setItem('myExpenses', JSON.stringify(newExpenses));
+  }
+
   return (
     <div>
       <NewExpense onAddNewExpense={addNewExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses onDelete={deleteHandler} items={expenses} />
     </div>
   );
 }
