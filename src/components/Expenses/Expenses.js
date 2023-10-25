@@ -7,7 +7,7 @@ import ExpensesList from './ExpensesList';
 import ExpensesChart from './ExpensesChart';
 
 export default function Expenses({items}) {
-  const [dateFiltered, setDateFiltered] = useState('2020');
+  const [dateFiltered, setDateFiltered] = useState('2023');
   const filterHandler = (date) => {
     setDateFiltered(date);
   }
