@@ -28,7 +28,11 @@ export default function ExpenseForm(props) {
     }
 
     props.onSaveExpense(enteredData);
+    clearForm();
+  }
 
+  const cancelHandler = () => {
+    props.onCancel();
     clearForm();
   }
 
@@ -75,6 +79,7 @@ export default function ExpenseForm(props) {
 
         <div className='new-expense__actions'>
           <button type='submit'>Add Expense</button>
+          <button onClick={cancelHandler}>Cancel</button>
         </div>
     </form>
   )
