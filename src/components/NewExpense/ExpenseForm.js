@@ -23,7 +23,7 @@ export default function ExpenseForm(props) {
     e.preventDefault();
     const enteredData = {
       title: enteredTitle,
-      amount: +enteredAmount,
+      amount: (+enteredAmount).toFixed(2),
       date: new Date(enteredDate),
     }
 
