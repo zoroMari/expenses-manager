@@ -6,8 +6,8 @@ import { useState } from 'react';
 import ExpensesList from './ExpensesList';
 import ExpensesChart from './ExpensesChart';
 
-export default function Expenses({items}) {
-  const [dateFiltered, setDateFiltered] = useState('2020');
+export default function Expenses({items, onDelete}) {
+  const [dateFiltered, setDateFiltered] = useState('2023');
   const filterHandler = (date) => {
     setDateFiltered(date);
   }
@@ -19,7 +19,7 @@ export default function Expenses({items}) {
       <Card className='expenses'>
         <ExpenseFilter defaultDate={dateFiltered} onChangeDate={filterHandler} />
         <ExpensesChart expenses={filteredExpenses} />
-        <ExpensesList filteredItems={filteredExpenses} />
+        <ExpensesList filteredItems={filteredExpenses} onDelete={onDelete} />
       </Card>
     </div>
   )

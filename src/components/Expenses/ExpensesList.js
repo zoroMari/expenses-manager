@@ -1,7 +1,7 @@
 import './ExpensesList.css';
 import ExpenseItem from './ExpenseItem';
 
-export default function ExpensesList({filteredItems}) {
+export default function ExpensesList({filteredItems, onDelete}) {
   if (filteredItems.length === 0) {
     return <h2 className='expenses-list__fallback'>Found no expenses.</h2>
   }
@@ -14,6 +14,7 @@ export default function ExpensesList({filteredItems}) {
           date={item.date} 
           title={item.title} 
           amount={item.amount} 
+          onDelete={() => onDelete(item.id) }
         />
       ))}
     </ul>
